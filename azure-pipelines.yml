@@ -7,7 +7,7 @@ trigger:
 - master
 
 jobs:
--job: Linux
+- job: Linux
   pool:
     vmImage: ubuntu-latest
   steps:
@@ -22,7 +22,7 @@ jobs:
       ng build --prod
     displayName: 'Ubuntu npm install and build'
   
-  -job: Windows
+  - job: Windows
   pool:
     vmImage: windows-latest
   steps:
