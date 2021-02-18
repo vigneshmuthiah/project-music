@@ -8,36 +8,31 @@ trigger:
 
 jobs:
 -job: Linux
-
-pool:
-  vmImage: ubuntu-latest
-
-steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '10.x'
-  displayName: 'Install Node.js'
-
-- script: |
-    cd ProjectMusic
-    npm install -g @angular/cli
-    npm install
-    ng build --prod
-  displayName: 'Ubuntu npm install and build'
-
--job: Windows
-pool:
-  vmImage: windows-latest
-
-steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '10.x'
-  displayName: 'Install Node.js'
-
-- script: |
-    cd ProjectMusic
-    npm install -g @angular/cli
-    npm install
-    ng build --prod
-  displayName: 'windows npm install and build'
+  pool:
+    vmImage: ubuntu-latest
+  steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '10.x'
+    displayName: 'Install Node.js'
+  - script: |
+      cd ProjectMusic
+      npm install -g @angular/cli
+      npm install
+      ng build --prod
+    displayName: 'Ubuntu npm install and build'
+  
+  -job: Windows
+  pool:
+    vmImage: windows-latest
+  steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '10.x'
+    displayName: 'Install Node.js'
+  - script: |
+      cd ProjectMusic
+      npm install -g @angular/cli
+      npm install
+      ng build --prod
+    displayName: 'windows npm install and build'
