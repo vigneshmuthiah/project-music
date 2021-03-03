@@ -7,10 +7,6 @@ trigger:
 - master
 
 jobs:
-- job: Linux
-  pool:
-    vmImage: ubuntu-latest
-  
 - job: Windows
   pool:
     vmImage: windows-latest
