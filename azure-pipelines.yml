@@ -6,19 +6,18 @@
 trigger:
 - master
 
-jobs:
-- job: Windows
-  pool:
-    vmImage: windows-latest
+pool:
+  vmImage: ubuntu-latest
 
 steps:
- - task: NodeTool@0
-   inputs:
-     versionSpec: '10.x'
-   displayName: 'Install Node.js'
- - script: |
-     cd ProjectMusic
-     npm install -g @angular/cli
-     npm install
-     ng build --prod
-   displayName: 'windows npm install and build'
+- task: NodeTool@0
+  inputs:
+    versionSpec: '10.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    cd ProjectMusic
+    npm install -g @angular/cli
+    npm install
+    ng build --prod
+  displayName: 'npm install and build'
